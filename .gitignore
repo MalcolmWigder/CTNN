@@ -1,0 +1,11 @@
+# Large model and data files
+*.pth
+*.pt
+*.pkl
+*.nc
+*.npz
+*.npy
+
+# Python cache
+__pycache__/
+*.pyc
