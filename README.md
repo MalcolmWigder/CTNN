@@ -36,7 +36,7 @@ pip install -r requirements.txt
 Download these files and place them in the correct locations:
 - `best_model.pth` → `Segmentation/best_model.pth`
 - `worldline_tensor.pt` → `Worldlines/worldline_tensor.pt`
-- `tensorstore.pt` (training data) → `Segmentation/tensorstore.pt`
+- `tensorstore.pt` (training data) → `Segmentation/tensorstore.pt` (note that this file is 26 GB)
 
 ### 3. Quick Test
 ```python
