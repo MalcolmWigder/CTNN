@@ -21,25 +21,32 @@ pip install -r requirements.txt
 - **Python**: 3.8+
 - **Key Dependencies**: PyTorch, torchvision, netCDF4, scikit-learn, matplotlib
 
-## Quick Start
+## Getting Started
 
-### Using the Main Interface
+### 1. Clone and Install
+```bash
+git clone https://github.com/MalcolmWigder/CTNN.git
+cd CTNN
+pip install -r requirements.txt
+```
+
+### 2. Download Data and Models
+**Download from Google Drive**: [Large Files Folder](https://drive.google.com/drive/folders/11pDrtQ_ldfBaaSEP2szd1x6fRfBk98kR?usp=sharing)
+
+Download these files and place them in the correct locations:
+- `best_model.pth` → `Segmentation/best_model.pth`
+- `worldline_tensor.pt` → `Worldlines/worldline_tensor.pt`
+- `tensorstore.pt` (training data) → `Segmentation/tensorstore.pt`
+
+### 3. Quick Test
 ```python
-from main import StormAnalysisToolkit
+from main import segment_data, analyze_worldlines
 
-# Initialize toolkit
-sat = StormAnalysisToolkit()
+# Test segmentation (you'll need a .nc file)
+results = segment_data("your_radar_data.nc", "Segmentation/best_model.pth", [0, 1, 2])
 
-# Full pipeline: train model -> segment -> analyze
-sat.run_full_pipeline(
-    radar_dir="/path/to/radar/files",
-    mask_dir="/path/to/mask/files", 
-    nc_file="/path/to/test/data.nc"
-)
-
-# Or run individual components
-sat.segment_radar_data("/path/to/data.nc", time_indices=[0, 1, 2])
-sat.analyze_worldlines("/path/to/worldline_tensor.pt")
+# Test worldlines analysis
+analyze_worldlines("Worldlines/worldline_tensor.pt")
 ```
 
 ### Command Line Usage
@@ -308,7 +315,9 @@ toolkit.analyze_worldlines("worldline_tensor.pt", detect_anomalies=True)
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
-
+- Made possible by the SULI program at Brookhaven National Laboratory
+- Thank you to my mentor, Die Wang
+- Thank you to the team who built CoCoMET: https://egusphere.copernicus.org/preprints/2025/egusphere-2025-1328/
 - Built on PyTorch and Mask R-CNN architecture
 - Utilizes scikit-learn for anomaly detection
 - NetCDF4 for radar data handling
