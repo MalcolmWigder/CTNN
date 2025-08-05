@@ -1,5 +1,10 @@
 # Storm Analysis Toolkit
 
+<div align="center">
+  <img src="./images/complete-workflow.png" alt="Storm Analysis Toolkit Complete Workflow" width="800">
+  <p><em>Complete workflow: From radar data to storm segmentation and temporal analysis</em></p>
+</div>
+
 A comprehensive Python package for radar-based storm segmentation and temporal analysis using deep learning and anomaly detection.
 
 ## Overview
